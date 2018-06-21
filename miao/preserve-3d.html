@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>prexerve-3d</title>
+		<style type="text/css">
+			*{
+				background-color: rgba(0,0,0,.1);
+			}
+			section{
+				height: 200px;
+				width: 200px;
+				padding: 200px;
+				margin: 50px;
+				padding: 100px;
+				transform-style: preserve-3d;
+				transition: 2s;
+				animation: spin 3s infinite linear;
+			}
+			@keyframes spin{
+				from{
+					transform: perspective(1000px) rotateX(0) rotateY(0);
+				}
+				to{
+					transform: perspective(1000px) rotateX(360deg) rotateY(720deg);
+				}
+			}
+			div{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				line-height: 200px;
+				text-align: center;
+				font-size: 80px;
+			}
+			div:nth-child(1){
+				transform: rotateX(0deg) translateZ(100px);
+				background-color: #FFCCCC;
+				opacity: .5;
+			}
+			div:nth-child(2){
+				transform: rotateX(180deg) translateZ(100px);
+				background-color: #FFFF99;
+				opacity: .5;
+			}
+			div:nth-child(3){
+				transform: rotateY(90deg) translateZ(100px);
+				background-color: #CCCCFF;
+				opacity: .5;
+			}
+			div:nth-child(4){
+				transform: rotateY(-90deg) translateZ(100px);
+				background-color: #CCFFFF;
+				opacity: .5;
+			}
+			div:nth-child(5){
+				transform: rotateX(90deg) translateZ(100px);
+				background-color: #CCCCCC;
+				opacity: .5;
+			}
+			div:nth-child(6){
+				transform: rotateX(-90deg) translateZ(100px);
+				background-color: #CCFF99;
+				opacity: .5;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+		</section>
+	</body>
+</html>

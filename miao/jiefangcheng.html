@@ -1,0 +1,37 @@
+<script type="text/javascript">
+	//	作业一
+	var a1 = prompt('a:')
+	var b1 = prompt('b:')
+	var c1 = prompt('c:')
+	var a = Number(a1)
+	var b = Number(b1)
+	var c = Number(c1)
+	var delta = b * b - 4 * a * c
+	var a_delta = Math.abs(delta)
+	var s_delta = Math.sqrt(a_delta)
+	var x1 = ((-b) + s_delta) / (2 * a)
+	var x2 = ((-b) - s_delta) / (2 * a)
+	var x = x1
+	console.log(a1)
+	if(isNaN(a) && isNaN(b) && isNaN(c)) {
+		document.write('please input a number')
+	} else if((a1==null) || (b1==null) || (c1==null)) {
+		document.write('please input a number')
+	}else if((a1=='') || (b1=='') || (c1=='')) {
+		document.write('please input a number')
+	}else if(delta > 0) {
+		document.write('x1=' + x1)
+		document.write('<br>')
+		document.write('x2=' + x2)
+	} else if (delta == 0){
+		document.write('x='+x)
+	}else{
+		document.write('x1'+x1+'i')
+		document.write('<br>')
+		document.write('x2'+x2+'i')
+	}
+</script>
+<script type="text/javascript">
+	//	作业二
+	
+</script>

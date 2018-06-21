@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>layout-four</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			/*定位方法*/
+			/*section{
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: #00FFFF;
+			}
+			.s1 {
+				width: 100px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				background-color: #008000;
+			}
+			.s2 {
+				height: 100px;
+				position: absolute;
+				top: 0;
+				left: 100px;
+				right: 200px;
+				background-color: #6EDC5F;
+			}
+			.s3 {
+				position: absolute;
+				top: 100px;
+				right: 200px;
+				left: 100px;
+				bottom: 0;
+				background-color: #ADFF2F;
+			}
+			.s4 {
+				width: 100px;
+				position: absolute;
+				top: 0;
+				right: 100px;
+				bottom: 0;
+				background-color: #DDDDDD;
+			}
+			.s5{
+				width: 100px;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				background-color: #EE82EE;
+			}*/
+			/*浮动方法*/
+			section {
+				min-width: 400px;
+				height: 100vh;
+				background-color: #FFFF00;
+			}
+			.s1,.s2,.s3 {
+				width: 100px;
+				height: 100%;
+			}
+			.s1 {
+				float: left;
+				background-color: #0000FF;
+				
+			}
+			.s2 {
+				float: right;
+				background-color: #008000;
+				
+			}
+			.s3 {
+				float: right;
+				background-color: #00FFFF;
+			}
+			.a4,.s5 {
+				overflow: hidden;       /*触发block的BFC让其窄或者用margin让其两边变窄*/
+			}
+			.s4 {
+				height: 100px;
+				background-color: #6EDC5F;
+			}
+			.s5{
+				height: calc(100% - 100px);
+				background-color: #ADFF2F;
+				overflow-y: scroll;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<div class="s1"></div>
+			<div class="s2"></div>
+			<div class="s3"></div>
+			<div class="s4"></div>
+			<div class="s5"></div>
+		</section>
+	</body>
+</html>

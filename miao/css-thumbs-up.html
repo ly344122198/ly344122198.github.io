@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>thumbs-up</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			label {
+				display: block;
+				width: 100px;
+				height: 100px;
+				cursor: pointer;
+				background-image: url(image/web_heart_animation_edge.png);
+			}
+			input:checked + label {
+				background-position: -2800px 0;
+				transition: 1s steps(28);
+				/*transition: .466666666s linear;*/
+			}
+			input {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="checkbox" name="thumbs-up" id="thumbs-up" />
+		<label for="thumbs-up"></label>
+	</body>
+
+</html>

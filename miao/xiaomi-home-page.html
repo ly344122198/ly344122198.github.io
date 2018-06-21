@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>xiaomi-home-page</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				text-decoration: none;
+				box-sizing: border-box;
+			}
+			
+			a {
+				text-decoration: none;
+				cursor: pointer;
+			}
+			
+			.layout {
+				width: 1226px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.clearfix::after {
+				content: '';
+				display: block;
+				clear: both;
+			}
+			
+			.header a {
+				display: block;
+				height: 120px;
+				width: 100%;
+				background-image: url('https://i1.mifile.cn/a4/cms_15270400062082_IKomG.jpg');
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: top;
+				text-indent: -999999px;
+			}
+			
+			.topbar {
+				width: 100%;
+				height: 40px;
+				padding-left: calc(50% - 613px);
+				padding-right: calc(50% - 613px);
+				background-color: rgb(38, 38, 38);
+				line-height: 40px;
+				color: rgb(160, 160, 160);
+			}
+			
+			.topbar a {
+				font-size: 12px;
+				color: rgb(160, 160, 160);
+			}
+			
+			.topbar a:hover {
+				color: #FFFFFF;
+				/*font-weight: 700;*/
+			}
+			
+			.topbar-l {
+				float: left;
+				height: 40px;
+			}
+			
+			.topbar .topbar-l a:nth-of-type(-n+8)::after {
+				content: '|';
+				font-size: 10px;
+				margin-left: 5px;
+				color: rgb(51, 51, 51);
+			}
+			
+			.topbar-r,
+			.topbar-car {
+				float: right;
+				height: 40px;
+			}
+			
+			.topbar .topbar-car a {
+				display: inline-block;
+				height: 40px;
+				width: 100px;
+				text-align: center;
+				background-color: rgb(51, 51, 51);
+				vertical-align: top;
+				margin-left: 20px;
+			}
+			
+			.topbar .topbar-car {
+				position: relative;
+			}
+			
+			.topbar .topbar-car .news {
+				display: none;
+				font-size: 12px;
+				background-color: #FFFFFF;
+				width: 316px;
+				height: 83px;
+				padding: 20px 15px;
+				text-align: center;
+				position: absolute;
+				top: 40px;
+				right: 0;
+				box-shadow: 0 2px 5px #DDDDDD;
+				z-index: 10;
+			}
+			
+			.topbar-car:hover .news {
+				display: block;
+			}
+			
+			.topbar .topbar-r a:nth-of-type(-n+2)::after {
+				content: '|';
+				font-size: 10px;
+				margin-left: 5px;
+				color: rgb(61, 61, 61);
+			}
+			
+			.logo {
+				float: left;
+				margin: 22px 175px 22px 0;
+			}
+			
+			.logo a {
+				display: block;
+				width: 55px;
+				height: 55px;
+				background-color: rgb(251, 79, 9);
+				background-repeat: no-repeat;
+				background-image: url('https://s01.mifile.cn/i/mi-logo.png'), url('https://s01.mifile.cn/i/mi-home.png');
+				background-position: 2px 2px, 50px 0;
+				transition: background-position .2s;
+			}
+			
+			.logo a:hover {
+				background-position: -50px 0, 2px 2px;
+			}
+			
+			.nav {
+				float: left;
+				font-size: 0;
+				margin-top: 22px;
+				z-index: 10;
+				/*position: relative;*/
+			}
+			
+			.father {
+				position: relative;
+			}
+			
+			.nav li {
+				display: inline-block;
+				font-size: 16px;
+				z-index: 10;
+			}
+			
+			.nav li a {
+				display: block;
+				height: 77px;
+				padding-left: 10px;
+				padding-right: 10px;
+				line-height: 55px;
+				color: #000000;
+				/*border: 1px solid;*/
+			}
+			
+			.nav>li:hover a.list-a {
+				color: rgb(251, 79, 9);
+			}
+			/*不给border会抖 给border了shadow又不能消失 心累*/
+			
+			.son {
+				width: 100%;
+				height: 0;
+				position: absolute;
+				left: 0;
+				overflow: hidden;
+				border-top: 1px solid white;
+				transition: 1s .1s;
+				padding: 0 100px;
+				z-index: 10;
+			}
+			
+			.nav:hover .son {
+				height: 220px;
+				border-top: 1px solid;
+				box-shadow: 0 2px 5px 1px #DDDDDD;
+				z-index: 10;
+				background-color: #FFFFFF;
+			}
+			
+			.nav-two-one {
+				width: 1226px;
+				font-size: 0;
+				background-color: #FFFFFF;
+				position: absolute;
+			}
+			
+			.nav-two-one>li {
+				display: inline-block;
+				height: 220px;
+				width: 200px;
+				font-size: 16px;
+				text-align: center;
+			}
+			
+			.nav-two-one>li::after {}
+			
+			.nav a:hover ~.son {
+				z-index: 20;
+			}
+			.nav>li> a:hover+.son>.nav-two-one {
+				z-index: 20;
+			}
+			
+			.nav>li:hover .nav-two-one>a {
+				color: #000000;
+			}
+			
+			.nav-two-one li a {
+				line-height: normal;
+			}
+			
+			.nav-two-one li a:before {
+				content: '新品';
+				display: block;
+				color: #fc5c11;
+				border: 1px solid #fc5c11;
+				width: 70px;
+				height: 20px;
+				font-size: 12px;
+				line-height: 20px;
+				margin: -1px auto 8px;
+			}
+			
+			.nav-two-one li a:after {
+				content: '3299元起';
+				display: block;
+				color: #FC5C11;
+				font-size: 12px;
+				/*line-height: 20px;*/
+			}
+			
+			.nav-two-one>li>a>img {
+				width: 160px;
+				height: 110px;
+				margin-bottom: 6px;
+			}
+			
+			.nav-two-one>li>a>span {
+				display: block;
+				font-size: 14px;
+				line-height: 26px;
+			}
+			
+			.search {
+				position: relative;
+				top: 25px;
+				float: right;
+			}
+			
+			.search>form {
+				display: flex;
+			}
+			
+			.search>form>input {
+				border: 1px solid #CCCCCC;
+				outline: none;
+				height: 50px;
+				width: 245px;
+				line-height: 50px;
+				font-size: 20px;
+				font-weight: 300;
+				transition: .5s;
+			}
+			
+			.search>form:hover input {
+				border: 1px solid #808080;
+			}
+			
+			.search>form>button {
+				border: 1px solid #CCCCCC;
+				border-left: none;
+				width: 50px;
+				outline: none;
+				transition: .5s;
+			}
+			
+			.search>form:hover button {
+				border: 1px solid #808080;
+				border-left: none;
+			}
+			
+			.search>form>button:hover {
+				background-color: #FF6700;
+				color: #FFFFFF;
+				transition: .2s;
+			}
+			
+			.search>form>.suggested-keyword {
+				position: absolute;
+				top: 17px;
+				right: 60px;
+				font-size: 12px;
+				opacity: 1;
+				transition: .5s;
+			}
+			
+			.search>form>input:focus~.suggested-keyword {
+				opacity: 0;
+				visibility: hidden;
+				/*pointer-events: none;*/
+				/*也可以用但是浏览器支持不好*/
+			}
+			
+			.search>form>input:focus {
+				border-color: #FF6700;
+			}
+			
+			.search>form>input:focus~button {
+				border-color: #FF6700;
+			}
+			
+			.suggested-keyword>li {
+				display: inline-block;
+				/*padding: 2px 4px;
+				background-color: #eeeeee;*/
+				font-size: 12px;
+				transition: .5s;
+			}
+			
+			.suggested-keyword>li>a {
+				font-size: 12px;
+				padding: 2px 4px;
+				background-color: #eeeeee;
+				color: #808080;
+				transition: .2s;
+			}
+			
+			.suggested-keyword>li>a:hover {
+				background-color: #FF6700;
+				color: #FFFFFF;
+			}
+			
+			.dropdown-keyword {
+				width: 245px;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				border: 1px solid #ff6700;
+				border-top: none;
+				line-height: 30px;
+				padding: 0 10px;
+				display: none;
+			}
+			
+			.search>form>input:focus~.dropdown-keyword {
+				display: block;
+			}
+			
+			.dropdown-keyword>li>a {
+				color: black;
+				font-size: 14px;
+			}
+			.jumbotron {
+				border: 1px solid;
+				position: relative;
+			}
+			.jumbotron > .slider {border: 1px solid;
+			display: block;
+				width: 1226px;
+				height: 460px;
+			}
+			.jumbotron > .sidbar {border: 1px solid;
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				padding: 20px 25px 20px 25px;
+				background-color: rgba(0,0,0,.3);
+			}
+			.sidbar > ul{
+				width: 180px;
+			}
+			.sidbar > ul > li > a{
+				display: flex;
+				line-height: 42px;
+				height: 42px;
+				color: #fff;
+				font-size: 14px;
+				font-weight: 300;
+			}
+			.sidbar > ul > li > a::after{
+				content: '>';
+				margin-left: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="header">
+			<a href="http://www.mi.com/a/h/5857.html?client_id=180100041086&masid=17409.0368">宣传页</a>
+		</div>
+		<div class="topbar clearfix">
+			<div class="topbar-l">
+				<a href="#">小米商城</a>
+				<a href="#">MIUI</a>
+				<a href="#">loT</a>
+				<a href="#">云服务</a>
+				<a href="#">小爱开放平台</a>
+				<a href="#">金融</a>
+				<a href="#">有品</a>
+				<a href="#">政企服务</a>
+				<a href="#">Select Region</a>
+			</div>
+			<div class="topbar-car">
+				<a href="#">购物车</a>
+				<div class="news">
+					购物车中还没有商品，赶紧选购吧！
+				</div>
+			</div>
+			<div class="topbar-r">
+				<a href="#">登陆</a>
+				<a href="#">注册</a>
+				<a href="#">消息通知</a>
+			</div>
+		</div>
+		<div class="father">
+
+			<div class="layout clearfix">
+				<div class="logo">
+					<a href="#"></a>
+				</div>
+				<ul class="nav">
+					<li>
+						<a href="#" class="list-a">小米手机</a>
+						<div class="son">
+							<ul class="nav-two-one">
+								<li>
+									<a href="#">
+										<img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-320-220.png" />
+										<span>小米MIX 2S</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-320-220.png" />
+										<span>小米MIX 2S</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-320-220.png" />
+										<span>小米MIX 2S</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-320-220.png" />
+										<span>小米MIX 2S</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-320-220.png" />
+										<span>小米MIX 2S</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-320-220.png" />
+										<span>小米MIX 2S</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="list-a">红米</a>
+						<div class="son">
+							<ul class="nav-two-one">
+								<li>
+									<a href="#">
+										<img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-320-220.png" />
+										<span>小米MIX 1S</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-320-220.png" />
+										<span>小米MIX 1S</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-320-220.png" />
+										<span>小米MIX 1S</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-320-220.png" />
+										<span>小米MIX 1S</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-320-220.png" />
+										<span>小米MIX 1S</span>
+									</a>
+								</li>
+								<!--<li>
+									<a href="#">
+										<img src="https://i1.mifile.cn/f/i/g/2015/cn-index/note5-320-220.png" />
+										<span>小米MIX 1S</span>
+									</a>
+								</li>-->
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="list-a">电视</a>
+					</li>
+					<li>
+						<a href="#" class="list-a">笔记本</a>
+					</li>
+					<li>
+						<a href="#" class="list-a">盒子</a>
+					</li>
+					<li>
+						<a href="#" class="list-a">新品</a>
+					</li>
+					<li>
+						<a href="#" class="list-a">路由器</a>
+					</li>
+					<li>
+						<a href="#" class="list-a">智能硬件</a>
+					</li>
+					<li>
+						<a href="#" class="list-a">服务</a>
+					</li>
+					<li>
+						<a href="#" class="list-a">社区</a>
+					</li>
+				</ul>
+				<div class="search clearfix">
+					<form action="" method="post">
+						<input type="text" value="" />
+						<ul class="suggested-keyword">
+							<li>
+								<a href="">小米8</a>
+							</li>
+							<li>
+								<a href="">618主会场</a>
+							</li>
+						</ul>
+						<button>搜索</button>
+						<ul class="dropdown-keyword">
+							<li>
+								<a href="">小米8</a>
+							</li>
+							<li>
+								<a href="">小米8</a>
+							</li>
+							<li>
+								<a href="">小米8</a>
+							</li>
+							<li>
+								<a h ref="">小米8</a>
+							</li>
+							<li>
+								<a href="">小米8</a>
+							</li>
+						</ul>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="jumbotron layout">
+				<div class="slider">
+					
+				</div>
+				<div class="sidbar">
+					<ul>
+						<li><a href="">手机 电话卡</a></li>
+						<li><a href="">电视 盒子</a></li>
+						<li><a href="">笔记本</a></li>
+						<li><a href="">智能 家电</a></li>
+						<li><a href="">健康 家居</a></li>
+						<li><a href="">出行 儿童</a></li>
+						<li><a href="">路由器 手机配件</a></li>
+						<li><a href="">移动电源 插线板</a></li>
+						<li><a href="">耳机 音箱</a></li>
+						<li><a href="">生活 米兔</a></li>
+					</ul>
+				</div>
+			</div>
+			<ul>
+				<li></li>
+			</ul>
+		</div>
+	</body>
+
+</html>

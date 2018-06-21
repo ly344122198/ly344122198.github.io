@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>css-ios-checkbox</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.io {
+				display: block;
+				width: 400px;
+				height: 200px;
+				background-color: #808080;
+				border: 5px solid;
+				border-radius: 100px;
+				position: relative;
+				transition: background-color 1s;
+				box-sizing: border-box;
+			}
+			
+			.io::before {
+				content: '';
+				display: block;
+				width: 190px;
+				height: 190px;
+				border-radius: 100px;
+				background-color: #ADFF2F;
+				position: absolute;
+				left: 0;
+				transition: left 1s;
+			}
+			/*input:checked + .ios {
+				background-color: #fff;
+			}*/
+			
+			.one input:checked+.io::before {
+				left: 200px;
+				transition: left 1s;
+			}
+			
+			.bg-color {
+				width: 190px;
+				height: 190px;
+				background-color: #fff;
+				border-radius: 200px;
+				transition: width 1s;
+			}
+			
+			.one input:checked+.io>.bg-color {
+				width: 390px;
+			}
+			
+			.one {
+				margin: 30px;
+			}
+			.two {
+				margin: 30px;
+			}
+			.two input[type="checkbox"] + label {
+				width: 60px;
+				height: 30px;
+				display: inline-block;
+				padding: 3px;
+				background-color: #ddd;
+				border-radius: 999px;
+				transition: box-shadow .2s;
+				cursor: pointer;
+				box-shadow: 0 0 0 0 #6edc5f inset;
+			}
+			.two input[type="checkbox"] + label::before {
+				content: '';
+				width: 30px;
+				height: 30px;
+				border-radius: 999px;
+				display: inline-block;
+				background-color: aqua;
+				transition: margin-left .2s;
+				background-color: white;
+				box-shadow: 0 3px 3px #6669;
+			} 
+			.two input[type="checkbox"]:checked + label {
+				box-shadow: 0 0 0 18px #6EDC5F inset;
+			}
+			.two input[type="checkbox"]:checked + label::before {
+				margin-left: 30px;
+			} 
+			input {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="one">
+			<input type="checkbox" name="check" id="check" />
+			<label for="check" class="io">
+			<div class="bg-color"></div>
+		</label>
+		</div>
+		<div class="two">
+			<input type="checkbox" name="ios" id="ios" />
+			<label for="ios">
+		</label>
+		</div>
+	</body>
+
+</html>

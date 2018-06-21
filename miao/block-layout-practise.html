@@ -1,0 +1,95 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>zuoye</title>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+				box-sizing: border-box;
+				list-style: none;
+			}
+			.header {
+				background-color: black;
+				/*text-align: center;*/
+				color: #fff;
+				margin-top: 10px;
+				padding:0 calc(50% - 300px);
+			}
+			.layout {
+				width: 600px;
+				margin: 20px auto;
+				
+			}
+			.main-one li {
+				width: 180px;
+				height: 40px;
+				background-color: pink;
+				border: 3px solid black;
+				margin-top: 15px;
+			}
+			.main-one li:nth-child(n+5){
+				margin-left: 210px;
+			}
+			.main-one li:nth-child(n+9){
+				margin-left: 420px;
+			}
+			.main-one li:nth-child(5),
+			.main-one li:nth-child(9){
+				margin-top: -205px;
+			}
+			.main-one li:hover{
+				background-color: red;
+			}
+			.main-two {
+				margin-top: 20px;
+				
+				overflow: hidden;
+			}
+			.main-two li {
+				margin-bottom: -1px;
+				border-bottom: 1px dashed;
+			}
+			footer {
+				background-color: violet;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<p class="header">hello world 请调整浏览器窗口大小查看效果</p>
+		<div class="layout">
+			<p class="content">页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 
+				页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 
+				页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 
+				页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 
+				页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px</p>
+			<ul class="main-one">
+				<li class="fm"></li>
+				<li></li>
+				<li></li>
+				<li class="fm"></li>
+				<li></li>
+				<li></li>
+				<li class="fm"></li>
+				<li></li>
+				<li></li>
+				<li class="fm"></li>
+				<li></li>
+				<li></li>
+			</ul>	
+			<ol class="main-two">
+				<li>link</li>
+				<li>link</li>
+				<li>link</li>
+				<li>link</li>
+				<li>link</li>
+			</ol>
+		</div>
+		<footer>
+			<p>&#169;版权所有</p>
+			<p>本页所有布局均使用块元素</p>
+		</footer>
+	</body>
+</html>

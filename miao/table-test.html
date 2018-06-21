@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>table-text</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			.bottommargin {
+				margin-bottom: 50px;
+			}
+			
+			.layout {
+				width: 800px;
+				position: absolute;
+				top: 0;
+				left: 50%;
+				margin-left: -400px;
+				padding: 20px;
+				border: 2px solid #F1F1F1;
+			}
+			
+			.table-one {
+				border-collapse: collapse;
+				width: 100%;
+			}
+			
+			.table-one {
+				text-align: left;
+			}
+			
+			.table-one tr>* {
+				padding: 8px 10px;
+			}
+			
+			.table-one thead {
+				border-top: 1px solid #ddd;
+				border-bottom: 2px solid #ddd;
+			}
+			
+			tbody tr:first-child {
+				border-bottom: 1px solid #DDDDDD;
+			}
+			
+			.table-two {
+				background-color: #000000;
+				color: #FFFFFF;
+			}
+			
+			.table-three thead {
+				background-color: #000000;
+				color: #FFFFFF;
+			}
+			
+			.table-four tbody tr:nth-child(odd) {
+				background-color: #DDDDDD;
+			}
+			
+			.table-two.table-four tbody tr:nth-child(odd) {
+				background-color: #808080;
+			}
+			
+			.table-five tr>* {
+				border: 1px solid;
+			}
+			/*表格长了出现滚动条*/
+			
+			.table-sixe {
+				overflow-x: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="layout">
+			<table class="bottommargin table-one">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>First</th>
+						<th>Last</th>
+						<th>Handel</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>1</th>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+					</tr>
+					<tr>
+						<th>2</th>
+						<td>mark</td>
+						<td>mark</t>
+							<td>mark</td>
+					</tr>
+					<tr>
+						<th>3</th>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="bottommargin table-one table-two">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>First</th>
+						<th>Last</th>
+						<th>Handel</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>1</th>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+					</tr>
+					<tr>
+						<th>2</th>
+						<td>mark</td>
+						<td>mark</t>
+							<td>mark</td>
+					</tr>
+					<tr>
+						<th>3</th>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+					</tr>
+				</tbody>
+
+			</table>
+			<table class="bottommargin table-one table-three">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>First</th>
+						<th>Last</th>
+						<th>Handel</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>1</th>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+					</tr>
+					<tr>
+						<th>2</th>
+						<td>mark</td>
+						<td>mark</t>
+							<td>mark</td>
+					</tr>
+					<tr>
+						<th>3</th>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="bottommargin table-one table-four">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>First</th>
+						<th>Last</th>
+						<th>Handel</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>1</th>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+					</tr>
+					<tr>
+						<th>2</th>
+						<td>mark</td>
+						<td>mark</t>
+							<td>mark</td>
+					</tr>
+					<tr>
+						<th>3</th>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="bottommargin table-one table-two table-four">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>First</th>
+						<th>Last</th>
+						<th>Handel</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>1</th>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+					</tr>
+					<tr>
+						<th>2</th>
+						<td>mark</td>
+						<td>mark</t>
+							<td>mark</td>
+					</tr>
+					<tr>
+						<th>3</th>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table class="bottommargin table-one table-five">
+				<!--表格border合并粗的留下-->
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>First</th>
+						<th>Last</th>
+						<th>Handel</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>1</th>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+					</tr>
+					<tr>
+						<th>2</th>
+						<td>mark</td>
+						<td>mark</t>
+							<td>mark</td>
+					</tr>
+					<tr>
+						<th>3</th>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table class="bottommargin table-one table-sixe">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>First</th>
+						<th>Last</th>
+						<th>Handel</th>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>1</th>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+					</tr>
+					<tr>
+						<th>2</th>
+						<td>mark</td>
+						<td>mark</t>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+					</tr>
+					<tr>
+						<th>3</th>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+						<td>mark</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+
+</html>

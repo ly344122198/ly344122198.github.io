@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>center/middle</title>
+		<style type="text/css">
+			/*line-height和vertical-align:middle;实现居中，但vertical-align对齐的是匿名文本，
+			 * 而匿名文本在包含块中又不是很精确的居中所以会有几个px的偏差，解决办法：把包含块的
+			 * font-size设为0后将子元素中的font-size设回来*/
+			* {
+				background-color: rgba(0,0,0,0.1);
+			}
+			.s1 {
+				line-height: 300px;
+				text-align: center;
+			}
+			.s1 div{
+				text-align: left;
+				line-height: normal;   /*该属性继承*/
+				display: inline-block;
+				width: 100px;
+				height: 100px;
+				vertical-align: middle;
+			}
+			/*第二种水平垂直居中 display: table-cell;*/
+			.s2 {
+				display: table-cell;
+				width: 200px;
+				height: 150px;
+				vertical-align: middle;
+			}
+			.s2 div{
+				width: 150px;
+				margin: auto;
+				height: 100px;
+			}
+			/*第三种 inline-block*/
+			.s3 {
+				display: table-cell;
+				width: 200px;
+				height: 150px;
+				vertical-align: middle;
+				text-align: center;
+			}
+			.s3 div{
+				display: inline-block;
+				text-align: left;
+				width: 100px;
+				height: 100px;
+			}
+			/*第四种 定位*/
+			.s4 {
+				position: relative;
+				width: 200px;
+				height: 150px;
+			}
+			.s4 div {
+				height: 100px;
+				width: 100px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -50px;
+				margin-left: -50px;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="s1">
+			<div></div>
+		</section>
+		<section class="s2">
+			<div></div>
+		</section>
+		<section class="s3">
+			<div></div>
+		</section>
+		<section class="s4">
+			<div></div>
+		</section>
+	</body>
+</html>

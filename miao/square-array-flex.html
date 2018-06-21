@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>square-array</title>
+		<style type="text/css">
+			*{
+				background-color: rgba(0,0,0,0.1);
+			}
+			section{
+				display: flex;
+				flex-flow: wrap;
+				padding: 5px;
+			}
+			div::before {
+				content: '';
+				display: block;
+				padding-bottom: 100%;
+			}
+			div{
+				width: 120px;
+				margin: 5px;
+				flex-grow: 1;
+			}
+			/*最后两个元素是为了然后最后一排显示的元素大小和其前面的一致但不可见,
+			所以height为0,在flex里分配宽度但高度为0所以不可见*/
+			div:nth-last-child( -n + 2){
+				height: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</section>
+	</body>
+</html>

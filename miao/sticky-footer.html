@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>sticky-footer</title>
+		<style type="text/css">
+			/*第一种方法 定位和padding-bottom／margin-bottom*/
+			html,body {
+				padding: 0;
+				margin: 0;
+				height: 100%;
+			}
+			div{
+				min-height: 100%;
+				box-sizing: border-box;
+				position: relative;
+				padding-bottom: 100px;
+			}
+			footer{
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				height: 100px;
+			}
+			/*第二种 用div把footer顶下去*/
+			/*html,body {
+				padding: 0;
+				margin: 0;
+				height: 100%;
+			}
+			div{
+				min-height: calc(100% - 100px);
+			}
+			footer{
+				height: 100px;
+			}*/
+		</style>
+	</head>
+	<body>
+		<div>main</div>
+		<footer>this is footer</footer>
+	</body>
+</html>
