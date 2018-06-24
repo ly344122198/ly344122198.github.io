@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			debugger
+			var judgeNumber = Number(prompt('多少位评委'))
+			var maxNumber = -Infinity
+			var minNumber = Infinity
+			var theNumber = 0
+			for (var i = 0;i < judgeNumber;i++) {
+				var gradeNumber = Number(prompt('第'+(i+1)+'个评委的评分'))
+				if (maxNumber < gradeNumber) {
+					maxNumber = gradeNumber
+				}
+				if (minNumber > gradeNumber) {
+					minNumber = gradeNumber
+				}
+				theNumber = theNumber + gradeNumber
+			}
+			console.log('平均分是' + ((theNumber - minNumber - maxNumber)/(judgeNumber-2)))
+		</script>
+		
+		<script type="text/javascript">
+			var oneNumber = Number(prompt('除数：'))
+			var twoNumber = Number(prompt('被除数：'))
+			var theNumber = oneNumber / twoNumber
+			if ((theNumber - parseInt(theNumber)) === 0) {
+				alert('可以被整除')
+			} else{
+				alert('不可以被整除')
+			}
+		</script>
+	</body>
+</html>

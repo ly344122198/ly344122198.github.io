@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>画图</title>
+  <style>
+    canvas {
+      border: 2px solid #f0f;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="400" height="300"></canvas>
+</body>
+<script>
+  var cvs = document.querySelector('canvas')
+  var ctx = cvs.getContext('2d')
+
+  function dot(x, y, color = 'black') {
+    ctx.fillStyle = color
+    ctx.fillRect(x, y, 1, 1)
+  }
+</script>
+<script>
+//	对角线
+	var duiJiaoNumberX = 0
+	var duiJiaoNumberY = 0
+	for (;duiJiaoNumberX < 399;duiJiaoNumberX++) {
+		duiJiaoNumberY = duiJiaoNumberX * 299 / 399
+		dot(duiJiaoNumberX,duiJiaoNumberY,'black')
+	}
+//	斜线
+	var xieNumberX = 0
+	var xieNumberY = 0
+	for (;xieNumberX < 399;xieNumberX++) {
+		xieNumberY = xieNumberX
+		dot(xieNumberX,xieNumberY,'black')
+	}
+//	横线
+
+	for (var hengNumberX = 0;hengNumberX < 399;hengNumberX++) {
+		var hengNumberY = 5
+		dot(hengNumberX,hengNumberY,'black')
+	}
+
+	var xuNumber1Y = 10
+	for (var i = 0;i < 399;i++) {
+		var xuNumber1X
+		if ((i % 2) !== 0) {
+			xuNumber1X = 0
+		}else{
+			xuNumber1X = i
+		}
+		dot(xuNumber1X,xuNumber1Y,'black')
+	}
+	
+	var xuNumber2Y = 15
+	for (var i = 0;i < 399;i += 4) {
+		var xuNumber2X_1 = i
+		dot(xuNumber2X_1,xuNumber2Y,'black')
+	}
+	for (var j = 1;j < 399;j += 4) {
+		var xuNumber2X_2 = j
+		dot(xuNumber2X_2,xuNumber2Y,'black')
+	}
+	
+	var xuNumber3Y = 20
+	for (var i = 0;i < 399;i += 6) {
+		var xuNumber3X_1 = i
+		dot(xuNumber3X_1,xuNumber3Y,'black')
+	}
+	for (var j = 1;j < 399;j += 6) {
+		var xuNumber3X_2 = j
+		dot(xuNumber3X_2,xuNumber3Y,'black')
+	}
+	for (var k = 2;k < 399;k += 6) {
+		var xuNumber3X_3 = k
+		dot(xuNumber3X_3,xuNumber3Y,'black')
+	}
+	
+//	黑方
+//	debugger;
+//			var blockNumberX = 100
+	var blockNumberY = 150
+	var blockNumberX = 150
+	for (var i = 0;i < 50;i ++) {
+		dot(blockNumberX,blockNumberY,'black')
+		for (var j = 1;j < 50; j ++) {
+			blockNumberX += 1
+			dot(blockNumberX,blockNumberY,'black')
+		}
+		blockNumberX = 150
+		blockNumberY += 1
+	}
+	
+//	彩方
+	var cblockNumberY = 219 + (50 / 255)
+	var cblockNumberX = 219 + (50 / 255)
+	var bNumber
+	var gNumber
+	for (var i = 0;i < 255;i ++) {
+		gNumber = 255 - i
+		var j = 0
+		bNumber = j
+		dot(cblockNumberX,cblockNumberY,'rgb(255,'+gNumber+','+bNumber+')')
+		for ( j = 1;j < 255; j ++) {
+			cblockNumberX = cblockNumberX + (50 / 255)
+			bNumber = j
+			dot(cblockNumberX,cblockNumberY,'rgb(255,'+gNumber+','+bNumber+')')
+		}
+		cblockNumberX = 219 + (50 / 255)
+		cblockNumberY = cblockNumberY + (50 / 255)
+	}
+	
+//	圆 (x - a)*(x - a) + (y - b)*(y - b) = r*r
+	debugger;
+	var circleNumberX
+	var circleNumberY
+	var circleNumberA = 100
+	var circleNumberB = 100
+	var circleNumberR = 20
+	for (var i = 0;i < 40; i++) {
+		circleNumberY = 80 + i
+		circleNumberX = 100 - Math.sqrt(Math.abs(200 * circleNumberY - circleNumberY * circleNumberY - 9600))
+		dot(circleNumberX,circleNumberY,'black')
+		circleNumberX = 100 + Math.sqrt(Math.abs(200 * circleNumberY - circleNumberY * circleNumberY - 9600))
+		dot(circleNumberX,circleNumberY,'black')
+	}
+	for (var i = 0;i < 40; i++) {
+		circleNumberX = 80 + i
+		circleNumberY = 100 - Math.sqrt(Math.abs(200 * circleNumberX - circleNumberX * circleNumberX - 9600))
+		dot(circleNumberX,circleNumberY,'black')
+		circleNumberY = 100 + Math.sqrt(Math.abs(200 * circleNumberX - circleNumberX * circleNumberX - 9600))
+		dot(circleNumberX,circleNumberY,'black')
+	}
+</script>
+</html>

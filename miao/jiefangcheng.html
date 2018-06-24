@@ -10,9 +10,11 @@
 	var delta = b * b - 4 * a * c
 	var a_delta = Math.abs(delta)
 	var s_delta = Math.sqrt(a_delta)
-	var x1 = ((-b) + s_delta) / (2 * a)
-	var x2 = ((-b) - s_delta) / (2 * a)
-	var x = x1
+	var xr = (-b)/(2*a)
+	var xi = s_delta/(2*a)
+//	var x1 = ((-b) + s_delta) / (2 * a)
+//	var x2 = ((-b) - s_delta) / (2 * a)
+	var x = x1r
 	//	console.log(a1)
 	if(isNaN(a) && isNaN(b) && isNaN(c)) {
 		document.write('please input a number')
@@ -21,15 +23,15 @@
 	} else if((a1 == '') || (b1 == '') || (c1 == '')) {
 		document.write('please input a number')
 	} else if(delta > 0) {
-		document.write('x1=' + x1)
+		document.write('x1=' + (xr+xi))
 		document.write('<br>')
-		document.write('x2=' + x2)
+		document.write('x2=' + (xr-xi))
 	} else if(delta == 0) {
 		document.write('x=' + x)
 	} else {
-		document.write('x1' + x1 + 'i')
+		document.write('x1=' + xr + '+' + (xi +'i'))
 		document.write('<br>')
-		document.write('x2' + x2 + 'i')
+		document.write('x2=' + xr + '-' + (xi+'i'))
 	}
 </script>
 <script type="text/javascript">
@@ -47,7 +49,7 @@
 	var d = Number(d1)
 	var e = Number(e1)
 	var f = Number(f1)
-	
+
 	var x = (c * e - b * f) / (a * e - b * d)
 	var y = (d * c - a * f) / (b * d - a * e)
 	console.log(a1)
@@ -57,11 +59,11 @@
 		document.write('please input a number')
 	} else if((a1 == '') || (b1 == '') || (c1 == '') || (d1 == '') || (e1 == '') || (f1 == '')) {
 		document.write('please input a number')
-	} else if( (a/d) !== (b/e) ) {
+	} else if((a / d) !== (b / e)) {
 		document.write('x=' + x)
 		document.write('<br>')
 		document.write('y=' + y)
-	} else if( (a/d) == (b/e) == (c/f)) {
+	} else if((a / d) == (b / e) == (c / f)) {
 		document.write('有无数组解')
 	} else {
 		document.write('无解')

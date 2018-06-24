@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>noi</title>
+	</head>
+	<body>
+		<script type="ch0103/01">
+			var isNumberA = Number(prompt('A:'))
+			var isNumberB = Number(prompt('B:'))
+			var theNumber = isNumberA + isNumberB
+			console.log(theNumber)
+		</script>
+		<script type="ch0103/02">
+			var isNumberA = Number(prompt('A:'))
+			var isNumberB = Number(prompt('B:'))
+			var isNumberC = Number(prompt('C:'))
+			var theNumber = (isNumberA + isNumberB) * isNumberC
+			console.log(theNumber)
+		</script>
+		<script type="ch0103/03">
+			var isNumberA = Number(prompt('A:'))
+			var isNumberB = Number(prompt('B:'))
+			var theNumber = parseInt(isNumberA / isNumberB)
+			var the_Number = isNumberA % isNumberB
+			console.log('theNumber'+ ' ' +'the_Number')
+		</script>
+		<script type="ch0103/04">
+			var isNumberA = Number(prompt('A:'))
+			var isNumberB = Number(prompt('B:'))
+			var theNumber = parseInt(isNumberA / isNumberB)
+			var the_Number = parseInt((isNumberA / isNumberB) * 1000000000) / 1000000000
+			var endNumber = the_Number - theNumber
+			console.log(endNumber)
+		</script>
+		<script type="ch0103/05">
+			var isNumberA = Number(prompt('总人数:'))
+			var isNumberB = Number(prompt('死亡数:'))
+			var theNumber = (parseInt((isNumberB / isNumberA) * 100000)) / 1000
+			var endNumber = theNumber + '%'
+			console.log(endNumber)
+		</script>
+		<script type="ch0103/06">
+			var isNumberX = Number(prompt('x:'))
+			var isNumberA = Number(prompt('a:'))
+			var isNumberB = Number(prompt('b:'))
+			var isNumberC = Number(prompt('c:'))
+			var isNumberD = Number(prompt('d:'))
+			var theNumber = (parseInt((isNumberA * isNumberX * isNumberX * isNumberX + isNumberB * isNumberX * isNumberX + isNumberC * isNumberX + isNumberC) * 1000000)) / 10000000
+			console.log(theNumber)
+		</script>
+		<script type="ch0103/07">
+			var isNumberF = Number(prompt('请输入华氏度:'))
+			var theNumber = (parseInt(5 *(isNumberF - 32) / 9 * 100000)) / 100000
+			console.log(theNumber)
+		</script>
+		<script type="ch0103/08">
+			var isNumberR = Number(prompt('圆的半径:'))
+			var theNumberD = (parseInt(2 * isNumberR * 10000)) / 10000
+			var theNumberL = (parseInt(2 * 3.14159 * isNumberR * 10000)) / 10000
+			var theNumberS = (parseInt(3.14159 * isNumberR * isNumberR * 10000)) / 10000
+			console.log('theNumberD' + ' ' + 'theNumberL' + ' ' + 'theNumberS')
+		</script>
+		<script type="ch0103/09">
+			var isNumberR = Number(prompt('圆的半径:'))
+			var theNumberD = (parseInt(2 * isNumberR * 10000)) / 10000
+			var theNumberL = (parseInt(2 * 3.14159 * isNumberR * 10000)) / 10000
+			var theNumberS = (parseInt(3.14159 * isNumberR * isNumberR * 10000)) / 10000
+			console.log('theNumberD' + ' ' + 'theNumberL' + ' '+ 'theNumberS')
+		</script>
+		<script type="ch0103/010">
+			var isNumberR1 = Number(prompt('第一个电阻:'))
+			var isNumberR2 = Number(prompt('第二个电阻:'))
+			var theNumberR = (parseInt(1/(1 / isNumberR1 + 1 / isNumberR2) * 100)) / 100
+			console.log(theNumberR)
+		</script>
+		<script type="ch0103/011">
+			var isNumberR1 = Number(prompt('第一个:'))
+			var isNumberR2 = Number(prompt('第二个:'))
+			var theNumber = (parseInt(isNumberR1 % isNumberR2 * 10000)) / 10000
+			console.log(theNumber)
+		</script>
+		<script type="ch0103/012">
+			var isNumberR = Number(prompt('半径是:'))
+			var theNumber = (parseInt(4 / 3 * 3.14 * isNumberR * isNumberR * isNumberR * 100)) / 100
+			console.log(theNumber)
+		</script>
+		<script type="ch0103/013">
+			var isNumber = Number(prompt('三位数:'))
+			var onesNumber = isNumber / 10 - parseInt(isNumber / 10) * 10
+			var tensNumber = ((isNumber / 100 - parseInt(isNumber / 100)) * 100 - onesNumber) / 10
+			var hundreds = (isNumber  - tensNumber * 10 - onesNumber) / 100
+			console.log('isNumber' + 'tensNumber' + 'hundreds')
+		</script>
+		<script type="ch0103/014">
+			var isNumberH = Number(prompt('h:'))
+			var isNumberR = Number(prompt('r:'))
+			var isNumberV = 3.14159 * isNumberR * isNumberR * isNumberH / 1000
+			var theNumber = Math.ceil(20 / isNumberV)
+			console.log(theNumber)
+		</script>
+		<script type="ch0103/015">
+			var isNumberN = 0
+			var isNumberX = 0
+			var isNumberY = 1
+			var theNumbeR = 0
+			while ( isNumberN * isNumberX < isNumberY){
+				isNumberN = Number(prompt('n:'))
+				isNumberX = Number(prompt('x:'))
+				isNumberY = Number(prompt('y:'))
+				theNumbeR = parseInt(isNumberN - isNumberY / isNumberX)
+			}
+			console.log(theNumbeR)
+		</script>
+		<script type="ch0103/016">
+			var isNumberXa = Number(prompt('Xa:'))
+			var isNumberYa = Number(prompt('Ya:'))
+			var isNumberXb = Number(prompt('Xb:'))
+			var isNumberYb = Number(prompt('Yb:'))
+			var theNumber = Math.sqrt((isNumberXa - isNumberXb) * (isNumberXa - isNumberXb) + (isNumberYa - isNumberYb) * (isNumberYa - isNumberYb))
+			console.log(theNumber)
+		</script>
+		<script type="ch0103/017">
+			var isNumberXa = Number(prompt('Xa:'))
+			var isNumberYa = Number(prompt('Ya:'))
+			var isNumberXb = Number(prompt('Xb:'))
+			var isNumberYb = Number(prompt('Yb:'))
+			var isNumberXb = Number(prompt('Xc:'))
+			var isNumberYb = Number(prompt('Yc:'))
+			var theNumberL1 = Math.sqrt((isNumberXa - isNumberXb) * (isNumberXa - isNumberXb) + (isNumberYa - isNumberYb) * (isNumberYa - isNumberYb))
+			var theNumberL2 = Math.sqrt((isNumberXa - isNumberXc) * (isNumberXa - isNumberXc) + (isNumberYa - isNumberYc) * (isNumberYa - isNumberYc))
+			var theNumberL3 = Math.sqrt((isNumberXc - isNumberXb) * (isNumberXc - isNumberXb) + (isNumberYc - isNumberYb) * (isNumberYc - isNumberYb))
+			var theNumberP = (theNumberL1 + theNumberL1 + theNumberL1) / 2
+			var endNumber = Math.sqrt(theNumberP * (theNumberP - theNumberL1) * (theNumberP - theNumberL2) * (theNumberP - theNumberL3))
+			console.log(endNumber)
+		</script>
+		<script type="ch0103/018">
+			var a1,a2,n = 0;
+			while (a1 < -100 || a2 > 100 || n <= 0 || n > 1000){
+				var a1 = Number(prompt('a1:'))
+				var a2 = Number(prompt('a2:'))
+				var n = Number(prompt('n:'))
+				var isNumber = a1 + (n - 1)(a2 - a1)
+			}
+			console.log(isNumber)
+		</script>
+		<script type="ch0103/019">
+			var a = 1,b,theNumber;
+			while (a < 1 || b > 50000){
+				a = Number(prompt('A:'))
+				b = Number(prompt('B:'))
+				theNumber = a * b
+			}
+			console.log(theNumber)
+		</script>
+		<script type="ch0103/020">
+			var n = -1,theNumber;
+			while (n < 0 || b >= 31){
+				n = Number(prompt('n:'))
+				theNumber = Math.pow(2,n)
+			}
+			console.log(theNumber)
+		</script>
+		<script type="ch0104/01">
+			var n = infinity;
+			while (n < -1e9 || n > 1e9){
+				n = Number(prompt('N:'))
+			}
+			if (n > 0) {
+				console.log(positive)
+			} else if (n = 0) {
+				console.log(zero)
+			} else {
+				console.log(negative)
+			}
+		</script>
+		<script type="ch0104/01">
+			var n = infinity;
+			while (n < -1e9 || n > 1e9){
+				n = Number(prompt('N:'))
+			}
+			if (n > 0) {
+				console.log(positive)
+			} else if (n = 0) {
+				console.log(zero)
+			} else {
+				console.log(negative)
+			}
+		</script>
+		<script type="ch0104/02">
+			var n = infinity,theNumber;
+			while (n < -10000 || n > 10000){
+				n = Number(prompt('N:'))
+			}
+			theNumber = parseInt(Math.abs(n) * 100) / 100
+			console.log(theNumber)
+		</script>
+	</body>
+</html>
