@@ -140,10 +140,10 @@
 				var a1 = Number(prompt('a1:'))
 				var a2 = Number(prompt('a2:'))
 				var n = Number(prompt('n:'))
-				var isNumber = a1 + (n - 1)(a2 - a1)
+				var isNumber = a1 + (n - 1) * (a2 - a1)
 			}
 			console.log(isNumber)
-		</script>
+		</script>443v
 		<script type="ch0103/019">
 			var a = 1,b,theNumber;
 			while (a < 1 || b > 50000){
@@ -174,19 +174,6 @@
 				console.log(negative)
 			}
 		</script>
-		<script type="ch0104/01">
-			var n = infinity;
-			while (n < -1e9 || n > 1e9){
-				n = Number(prompt('N:'))
-			}
-			if (n > 0) {
-				console.log(positive)
-			} else if (n = 0) {
-				console.log(zero)
-			} else {
-				console.log(negative)
-			}
-		</script>
 		<script type="ch0104/02">
 			var n = infinity,theNumber;
 			while (n < -10000 || n > 10000){
@@ -195,6 +182,123 @@
 			theNumber = parseInt(Math.abs(n) * 100) / 100
 			console.log(theNumber)
 		</script>
+		<script type="ch0104/04">
+			var a = prompt('a:')
+			var b = a.charCodeAt()
+			if (b % 2 === 0) {
+				console.log('YES')
+			} else {
+				console.log('NO')
+			}
+		</script>
+		<script type="ch0104/06">
+			var a = Number(prompt('a:'))
+			var b = parseInt(a / 100)
+			if (a > 0 ) {
+				console.log(1)
+			} else {
+				console.log(0)
+			}
+		</script>
+		<script type="ch0104/013">
+			var x = Number(prompt('x:'))
+			var y = 0
+			if (x >= 0 && x < 5) {
+				y = 2.5 - x
+			} else if (x >= 5 && x < 10){
+				y = 2 - 1.5 * (x - 3) * (x - 3)
+			} else if (x >= 10 && x <20) {
+				y = x / 2 - 1.5
+			}
+			console.log(y)
+		</script>
+		<script type="ch0104/016">
+			var a = Number(prompt('a:'))
+			var b = Number(prompt('b:'))
+			var c = Number(prompt('c:'))
+			if (a + b > c && b + c > a && a + c > b) {
+				console.log('YES')
+			} else {
+				console.log('NO')
+			}
+		</script>
+		<script type="ch0104/017">
+			var y = Number(prompt('y'))
+			if (y % 3200 === 0) {
+				console.log('N')
+			} else if (y % 400 === 0) {
+				console.log('Y')
+			} else if (y % 100 === 0) {
+				console.log('N')
+			} else if (y % 4 === 0) {
+				console.log('Y')
+			} else {
+				console.log('N')
+			}
+		</script>
+		<script type="ch0104/019">
+			var a = Number(prompt('a'))
+			var b = Number(prompt('b'))
+			var c = prompt('b')
+			if (a === 0 || b === 0) {
+				console.log('D')
+			} else if (c !== '+' && c !== '-' && c !== '*' &&c !== '/') {
+				console.log('I')
+			} else if (c === '+') {
+				console.log(a + b)
+			} else if (c === '-') {
+				console.log(a - b)
+			} else if (c === '*') {
+				console.log(a * b)
+			}else if (c === '/') {
+				console.log(a / b)
+			}
+		</script>
+		<script type="ch0104/019">
+			var x = Number(prompt('x:'))
+			var y = Number(prompt('y:'))
+			if (x >= -1 && x <= 1 && y >= -1 && y <= 1) {
+				console.log('yes')
+			} else {
+				console.log('no')
+			}
+		</script>
+		<script type="ch0105/01">
+			var n = Number(prompt('n:'))
+			var num = 0
+			var sum = 0
+			for (var i = 0; i < n; i++) {
+				num += Number(prompt())
+			}
+			sum = num / n
+			console.log(sum.toFixed(2))
+		</script>
+		<script type="ch0105/016">
+			var s = 50
+			var rate = (10 + 100) / 100
+			var h = 200
+			var m = 0
+			var y = 20
+			for (var i = 1; i <= y; i++) {
+				h *= rate
+				m += s
+				if (m > h) {
+					console.log(i)
+				} else {
+					console.log('Impossible')
+				}
+			}
+		</script>
+		<script type="ch0105/016">
+			var k = NUmber(prompt('k:'))
+			var a = 1
+			var b = 1
+			for (var i = 1; i < k;i ++) {
+				b = a + b
+				a = b - a	
+			}
+			console.log(a)
+		</script>
 
 
 
@@ -212,6 +316,7 @@
 
 
 
+	
 	<script id="sort" sample-input="4 1 7" sample-output="1 4 7" comment="输入三个数，把此三个数按升序输出">
   		var a = Number(prompt('a:'))
   		var b = Number(prompt('b:'))
@@ -225,29 +330,58 @@
   		console.log(min + ' ' + (a + b + c - min - max) + ' ' + min)
  	</script>
 	<script id="narcissistic " sample-input="153" sample-output="YES" comment="判断一个数是否为水仙花数">
-  		var a = Number(prompt('a:'))
-  		var ones = a % 10
-  		var tens = parseInt(a % 100 / 10)
-  		var hundreds = parseInt(a / 100)
-  		var shui = ones**3 + tens**3 +hundreds**3
-  		if (a === shui) console.log('YES')
+  		var n = Number(prompt('a:'))
+  		var x = n
+  		var digit
+  		var width = 0
+  		var num = 0
+  		do {
+  			digit = x % 10
+  			x = (x - digit) / 10
+  			width += 1
+  		} while (x > 0)
+  		do {
+  			digit = n % 10
+  			num += digit**width
+  			n = (n - digit) / 10
+  		} while (n > 0)
+  		if (s === num) console.log('yes')
 	</script>
 	<script id="narcissistics" sample-input="" sample-output="" comment="找出100到10000以内所有的水仙花数">
+		var n
+	    var x
+  		var digit
+  		var width = 0
+  		var num = 0
   		for (var i = 100; i < 10000; i++) {
-  			var ones = i % 10
-  			var tens = parseInt(i % 100 / 10)
-  			var hundreds = parseInt(i / 100)
-  			var shui = ones**3 + tens**3 +hundreds**3
-  			if (i === shui) console.log(i)
+  			n = i
+  			x = ／n
+  			do {
+  				digit = x % 10
+  				x = (x - digit) / 10
+  				width += 1
+  			} while (x > 0)
+  			do {
+  				digit = n % 10
+  				num += digit**width
+  				n = (n - digit) / 10
+  			} while (n > 0)
+  			if (s === num) console.log('yes')
   		}
 	</script>
 	<script id="palindrom" sample-input="12321" sample-output="YES" comment="判断一个非负整数是否为回文数字">
-  		var a = Number(prompt('a:'))
-  		var ones = a % 10
-  		var tens = parseInt(a % 100 / 10)
-  		var hundreds = parseInt(a / 100)
-  		var shui = Number(hundreds + '' + tens + ones)
-  		if (a === shui) console.log('YES')
+  		var isPalindrome = function(x) {
+    		var y = x
+    		var z = ''
+    		var digit
+    		if (x < 0) return false
+    		do {
+    			digit = y % 10
+    			z = digit + z
+    			y = (y - digit) / 10
+    		} while (y > 0)
+    		return y == x
+		};
 	</script>
 	<script id="weekday" sample-input="2018 6" sample-output="5" comment="输入年份与月份，给出该年该月的第一天是星期几">
   		var a = Number(prompt('a:'))
@@ -262,6 +396,20 @@
   			if (sum % i === 0) num += i
   		}
   		if (sum === num) console.log('YES')
+  		// 函数
+  		var isCompleteNumber = function(n) {
+  			var sum
+  			var sqrt_n = Math.sqrt(n)
+  			for (var i = 2; i <= sqrt_n; i++){
+  				if (n % i === 0) {
+  					if (i === n / i) {
+  						sum += i
+  					} else {
+  						sum += i + n / i
+  					}
+  				}
+  			}
+  		}
 	</script>
 	<script id="complete-numbers" sample-input="" sample-output="" comment="输出10000以内所有的完全数">
   		for (var i = 0; i < 10000; i++) {
@@ -300,15 +448,30 @@
   		var a = Number(prompt('a:'))
   		var b = Number(prompt('b:'))
   		var beiNumber
-  		for (var i = a; i <= a; i--) {
+  		var c = a > b ? b : a
+  		for (var i = c; i > 0; i--) {
   			if (a % i === 0 && b % i === 0) break
   		}
   		beiNumber = a * b / i 
   		console.log(beiNumber + ' ' + i)
 	</script>
 	<script id="7" sample-input="" sample-output="" comment="敲7">
-  		for (var i = 1; i < 100; i++) {
-  			if (i % 7 === 0 || (i - 7) % 10 === 0) console.log(i)
+  		for (var i = 1; i <= 100;i++) {
+  			n = i
+  			if (n % 7 === 0) {
+  				console.log(i)
+  				break
+  			}
+  			var digit
+  			do {
+  				digit = n % 10
+  				if (digit === 7) {
+  					console.log(7)
+  					break
+  				} else {
+  					n = (n - digit) / 10
+  				}
+  			} while (n > 0)
   		}
 	</script>
 	<script id="sqrt" sample-input="2" sample-output="1.414" comment="不使用Math.sqrt，求一个非负数的平方根，至少精确到小数点后3位">
@@ -322,6 +485,135 @@
   				break
   			}
   		}
+  		for (var i = 1000;i < num / 2;i = i + n) {
+  			sum = Math.ceil(i * i / 1000)
+  			q = 0
+  			if (num === sum) {
+  				console.log(i / 1000)
+  				break
+  			} else if (num > sum ) {
+  				
+  			}
+  		}
+	</script>
+	<script>
+	// 质数的乘积
+	// 题目：分解质因数，把一个数分解为若干质数的乘积：
+	// 12 = 2 * 2 * 3
+	// 120 = 2 * 2 * 2 * 3 * 5
+	// 1260 = 2 * 2 * 3 * 3 * 5 * 7
+		var product = function (n) {
+			var str = ''
+			var m = 0
+			for (var j = 2; j < 100; j++) {
+  				var k = 0
+  				for (var i = 2; i < j; i++) {
+  					if (j % i === 0) {
+  						k += 1
+  					}
+  				}
+  				if (k === 0) {
+  					while (n % j === 0) {
+  						n = n / j
+  						m += 1
+  						if (m === 1) {
+  							str = str + j
+  						} else {
+  							str = str + '*' + j
+  						}
+  					}
+  				}
+  			}
+  			return str
+		}
+		profuct(n)
+	</script>
+	<script>
+		var theNumber = function (n) {
+				var sum = 0
+				var isNumber = function () {
+					sum = 0
+					var digit = 0
+						do {
+							digit = n % 10
+							n = (n - digit) / 10
+							sum += digit
+						} while (n > 0)
+				}
+				
+				if (n < 10) {
+					return n
+				} else {
+					isNumber(n)
+				}
+
+				while (sum > 10) {
+					n = sum
+					isNumber(sum)
+				}
+				return sum
+			}
+			debugger
+			theNumber(459)
+	</script>
+	 <script>
+	//  题目：找出唯一的满足a + b + c = 1000的毕达拉斯三元组{a, b, c}。
+	// 一个毕达哥拉斯三元组是一个包含三个自然数的集合，a<b<c，满足条件：
+	// a^2 + b^2 = c^2例如：3^2 + 4^2 = 9 + 16 = 25 = 5^2.（说白了就是一组勾股数）
+	// 已知存在并且只存在一个毕达哥拉斯三元组满足条件a + b + c = 1000。
+	// 找出这个三元组。
+	// 题目中a^b代表a的b次方（这是一个通用表示法） 。
+		var bidageNumber = function () {
+  			var str = ''
+			for (var c = 0; c < 1000; c++) {
+				for (var b = 0; b < c; b++) {
+					for (var a = 0; a < b; a++){
+						if (a + b + c === 1000 && a * a + b * b === c * c) {
+							str = str + a + '+' + b + '+' + c
+							return str
+						}
+					}	
+				}
+			}
+		}
+	</script> 
+	<script>
+	// 题目：找出最小的能被1到20所有数整除的数。
+	var multiple = function () {
+		var num = 1
+		for (var j = 2; j < 20; j++) {
+  			var k = 0
+  			for (var i = 2; i < j; i++) {
+  				if (j % i === 0) {
+  					k += 1
+  				}
+  			}
+  			var n = 1
+  			if (k === 0 && j <= Math.sqrt(20)) {
+  				do {
+  					n = n * j 
+  				} while (n < 20)
+  				n = n / j
+  			}
+  			if (k === 0 && j > Math.sqrt(20)) {
+  				n = n * j
+  			}
+  			num = num * n
+  		}
+  		return num
+  	}
+  	multiple()
 	</script>
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
