@@ -19,7 +19,7 @@ var ly344122198 = {
 			
 	},
 
-	difference: function(){
+	difference: function(ary){
 
 	},
 
@@ -84,7 +84,7 @@ var ly344122198 = {
 		return result
 	},
 
-	map: function(){
+	map: function(ary){
 
 	},
 
