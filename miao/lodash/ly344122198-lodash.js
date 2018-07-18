@@ -17,11 +17,11 @@ var ly344122198 = {
 
 	compact: function(array){
 			
-	}
+	},
 
 	difference: function(){
 
-	}
+	},
 
 	flatten: function(ary) {
 		return ary.reduce((result, item) => {
@@ -34,7 +34,7 @@ var ly344122198 = {
 			}
 			return result
 		}, [ ])
-	}
+	},
 
 	flattenDeep: function(ary) {
 		var result = [ ]
@@ -47,7 +47,7 @@ var ly344122198 = {
 			}
 		}
 		return result
-	}
+	},
 
 	flattenDepth: function(ary, depth) {
 		if (depth === 0) {
@@ -63,7 +63,7 @@ var ly344122198 = {
 			}
 		}
 		return result
-	}
+	},
 
 	forEach: function(ary, iterator) {
 		for (var i = 0; i < ary.length; i++) {
@@ -72,7 +72,7 @@ var ly344122198 = {
 			}
 		}
 		return
-	}
+	},
 
 	filter: function(ary, test) {
 		var result = [ ]
@@ -82,11 +82,11 @@ var ly344122198 = {
 			}
 		}
 		return result
-	}
+	},
 
 	map: function(){
 
-	}
+	},
 
 	reduce: function(ary, reducer, initialValue) {
 		var prev = initialValue
@@ -94,7 +94,7 @@ var ly344122198 = {
 			prev = reducer(initialValue, arr[i])
 		}
 		return prev
-	}
+	},
 
 	sum: function(ary) {
 		var sum = 0
@@ -102,7 +102,7 @@ var ly344122198 = {
 			sum += ary[i]
 		}
 		return sum
-	}
+	},
 
 	sumby: function(ary, iteratee) {
 		var result
@@ -110,17 +110,17 @@ var ly344122198 = {
 			result += iteratee(ary[i])
 		}
 		return result
-	}
+	},
 
 	identity: function(v) {
 		return v
-	}
+	},
 
 	property: function(propName) {
 		return function(obj){
 			return obj[propName]
 		}
-	}
+	},
 
 	matches: function(src) {
 		return function(obj) {
@@ -136,7 +136,7 @@ var ly344122198 = {
 			}
 			return true
 		}
-	}
+	},
 
 
 
