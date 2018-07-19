@@ -7,7 +7,7 @@ var ly344122198 = {
 	 * @return {[type]}       [description]
 	 */
 	chunk: function(array,size) {
-			size = 1 || size
+			size = size || 1
 			var arr = [ ]
 			for (var i = 0; i < array.length; i += size) {
 				arr.push(array.slice(i , i + size))
@@ -40,8 +40,8 @@ var ly344122198 = {
 		var result = [ ]
 		for (var i = 0; i < ary.length; i++) {
 			if(Array.isArray(ary[i])) {
-				var tmp = flattenDeep(arr[i])
-				result = [...result, ...ary[i]]
+				var tmp = ly344122198.flattenDeep(ary[i])
+				result = [...result, ...tmp]
 			} else {
 				result.push(ary[i])
 			}
@@ -56,8 +56,8 @@ var ly344122198 = {
 		var result = [ ]
 		for (var i = 0; i < ary.length; i++) {
 			if(Array.isArray(ary[i])) {
-				var tmp = flattenDepth(arr[i], depth - 1)
-				result = [...result, ...ary[i]]
+				var tmp = ly344122198.flattenDepth(ary[i], depth - 1)
+				result = [...result, ...tmp]
 			} else {
 				result.push(ary[i])
 			}
@@ -71,14 +71,22 @@ var ly344122198 = {
 				break
 			}
 		}
-		return
+		return ary
 	},
 
 	filter: function(ary, test) {
 		var result = [ ]
-		for (var i = 0; i < ary.length; i++) {
-			if (test(ary[i])) {
-				result.push(ary[i])
+		if (typrof test === 'function') {
+			for (var i = 0; i < ary.length; i++) {
+				if (test(ary[i])) {
+					result.push(ary[i])
+				}
+			}
+		} else {
+			for (var i = 0; i < ary.length; i++) {
+				if (ary[i].test) {
+					result.push(ary[i])
+				}
 			}
 		}
 		return result
@@ -91,7 +99,7 @@ var ly344122198 = {
 	reduce: function(ary, reducer, initialValue) {
 		var prev = initialValue
 		for (var i = 0; i < ary.length; i++) {
-			prev = reducer(initialValue, arr[i])
+			prev = reducer(initialValue, ary[i])
 		}
 		return prev
 	},
