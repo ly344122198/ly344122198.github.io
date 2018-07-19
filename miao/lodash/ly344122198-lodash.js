@@ -97,9 +97,11 @@ var ly344122198 = {
 	},
 
 	reduce: function(ary, reducer, initialValue) {
+		initialValue = initialValue || 0
 		var prev = initialValue
 		for (var i = 0; i < ary.length; i++) {
 			prev = reducer(initialValue, ary[i])
+			initialValue = prev
 		}
 		return prev
 	},
