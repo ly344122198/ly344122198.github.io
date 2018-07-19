@@ -8,11 +8,11 @@ var ly344122198 = {
 	 */
 	chunk: function(array,size) {
 			size = size || 1
-			var arr = [ ]
+			var ary = [ ]
 			for (var i = 0; i < array.length; i += size) {
-				arr.push(array.slice(i , i + size))
+				ary.push(array.slice(i , i + size))
 			}	
-			return arr
+			return ary
 			},
 
 	compact: function(array){
@@ -76,7 +76,7 @@ var ly344122198 = {
 
 	filter: function(ary, test) {
 		var result = [ ]
-		if (typrof test === 'function') {
+		if (typeof test === 'function') {
 			for (var i = 0; i < ary.length; i++) {
 				if (test(ary[i])) {
 					result.push(ary[i])
