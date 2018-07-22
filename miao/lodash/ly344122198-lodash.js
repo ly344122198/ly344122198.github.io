@@ -23,6 +23,55 @@ var ly344122198 = {
 
 	},
 
+	fill : function(ary, val, star, end){
+		star = star || 0
+		end = end || ary.length
+		if (end > ary.length) {
+			end = ary.length
+		}
+		for (var i = star; i < end; i++) {
+			ary[i] = val
+		}
+		return ary
+	},
+
+	find: function(){
+
+	},
+
+	indexOf: function(ary, val, formIndex){
+		formIndex = forIndex || 0
+		for (var i = formIndex; i < ary.length; i++) {
+			if (ary[i] == val) return i
+		}
+		return -1
+	},
+
+	lastIndexOf: function(ary, val, formIndex){
+		formIndex = forIndex || 0
+		for (var i = ary.length - formIndex; i > 0; i--) {
+			if (ary[i] == val) return i
+		}
+		return -1
+	},
+
+	join: function(ary, sepeartry = ',') {
+    	var str = '';
+    	for (var i = 0; i < array.length - 1; i++) {
+        	str += array[i] + ('' + separator);
+    	}
+    	str += array[array.length - 1];
+    		return str
+	},
+
+	reverse: function(ary) {
+    	var newAry = []
+    	for (var i = ary.length - 1; i >= 0; i--) {
+        	newAry.push(array[i])
+    	}
+    	return newArray
+	},
+
 	flatten: function(ary) {
 		return ary.reduce((result, item) => {
 			if(Array.isArray(item)) {
@@ -72,6 +121,18 @@ var ly344122198 = {
 			}
 		}
 		return ary
+	},
+
+	groupBy: function(ary,prop) {
+		var map = {}
+		for (var item of map) {
+			if (item[prop] in map) {
+				map[item[prop]].push(tiem)
+			} else {
+				map[item[prop]] = [itme]
+			}
+		}
+		return map
 	},
 
 	filter: function(ary, test) {
