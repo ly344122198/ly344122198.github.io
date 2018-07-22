@@ -40,7 +40,7 @@ var ly344122198 = {
 	},
 
 	indexOf: function(ary, val, formIndex){
-		formIndex = forIndex || 0
+		formIndex = formIndex || 0
 		for (var i = formIndex; i < ary.length; i++) {
 			if (ary[i] == val) return i
 		}
@@ -48,7 +48,7 @@ var ly344122198 = {
 	},
 
 	lastIndexOf: function(ary, val, formIndex){
-		formIndex = forIndex || 0
+		formIndex = formIndex || 0
 		for (var i = ary.length - formIndex; i > 0; i--) {
 			if (ary[i] == val) return i
 		}
@@ -57,19 +57,19 @@ var ly344122198 = {
 
 	join: function(ary, sepeartry = ',') {
     	var str = '';
-    	for (var i = 0; i < array.length - 1; i++) {
-        	str += array[i] + ('' + separator);
+    	for (var i = 0; i < ary.length - 1; i++) {
+        	str += ary[i] + ('' + separator);
     	}
-    	str += array[array.length - 1];
+    	str += ary[ary.length - 1];
     		return str
 	},
 
 	reverse: function(ary) {
     	var newAry = []
     	for (var i = ary.length - 1; i >= 0; i--) {
-        	newAry.push(array[i])
+        	newAry.push(ary[i])
     	}
-    	return newArray
+    	return newAry
 	},
 
 	flatten: function(ary) {
@@ -127,9 +127,9 @@ var ly344122198 = {
 		var map = {}
 		for (var item of map) {
 			if (item[prop] in map) {
-				map[item[prop]].push(tiem)
+				map[item[prop]].push(item)
 			} else {
-				map[item[prop]] = [itme]
+				map[item[prop]] = [item]
 			}
 		}
 		return map
