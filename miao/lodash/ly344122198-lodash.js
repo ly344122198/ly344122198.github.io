@@ -22,7 +22,14 @@ var ly344122198 = {
 	difference: function(ary){
 
 	},
-
+	/**
+	 * [fill description]
+	 * @param  {[type]} ary  [description]
+	 * @param  {[type]} val  [description]
+	 * @param  {[type]} star [description]
+	 * @param  {[type]} end  [description]
+	 * @return {[type]}      [description]
+	 */
 	fill : function(ary, val, star, end){
 		star = star || 0
 		end = end || ary.length
@@ -38,7 +45,13 @@ var ly344122198 = {
 	find: function(){
 
 	},
-
+	/**
+	 * [indexOf description]
+	 * @param  {[type]} ary       [description]
+	 * @param  {[type]} val       [description]
+	 * @param  {[type]} formIndex [description]
+	 * @return {[type]}           [description]
+	 */
 	indexOf: function(ary, val, formIndex){
 		formIndex = formIndex || 0
 		for (var i = formIndex; i < ary.length; i++) {
@@ -48,6 +61,7 @@ var ly344122198 = {
 	},
 
 	lastIndexOf: function(ary, val, formIndex){
+		if (formIndex < 0) return -1
 		formIndex = formIndex || 0
 		for (var i = ary.length - formIndex; i > 0; i--) {
 			if (ary[i] == val) return i
@@ -58,7 +72,7 @@ var ly344122198 = {
 	join: function(ary, sepeartry = ',') {
     	var str = '';
     	for (var i = 0; i < ary.length - 1; i++) {
-        	str += ary[i] + ('' + separator);
+        	str += ary[i] + ('' + sepeartry);
     	}
     	str += ary[ary.length - 1];
     		return str
@@ -70,6 +84,10 @@ var ly344122198 = {
         	newAry.push(ary[i])
     	}
     	return newAry
+	},
+
+	uniq: function(ary) {
+		return Array.from(new set(ary))
 	},
 
 	flatten: function(ary) {
@@ -157,6 +175,29 @@ var ly344122198 = {
 
 	},
 
+	isEqual: function(objOne, objTwo) {
+		if (objOne === objTwo) return true
+		if (objOne !== objOne && objTwo !== ovjTwo) return true 
+		if (Array.isArray(objOne) && Array.isArray(objTwo)) {
+			var l = Math.max(objOne.length, objTwo.length)
+			for (var i = 0; i < max; i++) {
+				if (!ly344122198.isEqual(objOne[i], objTwo[i])) return false
+			}
+			return true
+		}
+		if (typeof objOne === 'object' && typeof objTwo === 'object') {
+			var propNames = []
+			for (var key in objOne) propNames.push(key)
+			for (var key in objTwo) propNames.push(key)
+			propNames = ly344122198.uniq(propNames)
+			for (var key of propNames) {
+				if (!y344122198.isEqual(objOne[key], objTwo[key])) return false
+			}
+			return true
+		}
+		return objOne === objTwo
+	},
+
 	reduce: function(ary, reducer, initialValue) {
 		initialValue = initialValue || 0
 		var prev = initialValue
@@ -176,11 +217,11 @@ var ly344122198 = {
 	},
 
 	sumby: function(ary, iteratee) {
-		var result
+		var sum = 0
 		for (var i = 0; i < ary.length; i++) {
-			result += iteratee(ary[i])
+			sum += iteratee(ary[i])
 		}
-		return result
+		return sum
 	},
 
 	identity: function(v) {
@@ -209,6 +250,9 @@ var ly344122198 = {
 		}
 	},
 
+	keys: function(object) {
+		return Object.keys(object)
+	},
 
 	matchesProperty: function(pairs) {
 		return matches(fromPairs(pairs))
