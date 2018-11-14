@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<span id="haha" style="border: 3px solid red; height: 10px; width: 10px;"></span>
+	<script>
+		var cat = document.querySelector('#haha')
+		var angle = 0
+		var lastTime = null
+		function animate(time){
+			if(lastTime !== null) {
+				angle += (time - lastTime) * 0.001
+			}
+			lastTime = time
+			cat.style.top = (Math.sin(angle) * 20) + 'px'
+			cat.style.left = (Math.cos(angle) * 200) + 'px'
+			requestAnimationFrame(animate)
+		}
+		requestAnimationFrame(animate)
+	</script>
+	
+</body>
+</html>

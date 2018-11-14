@@ -16,12 +16,32 @@ var ly344122198 = {
 			},
 
 	compact: function(array){
-			
+			var result = [ ]
+			for (var i = 0; i < array.length; i++) {
+				if (array[i]) {
+					result.push(array[i])
+				}
+			}
+			return result
 	},
 
-	difference: function(ary){
-
+	difference: function(ary, ...args){
+			var ary = [].concat(...args)
+			return ary.reduce(function(result, iteam) {
+				if (!ary.includes(iteam)) result.push(iteam)
+				return result
+			}, [])
 	},
+
+	drop: function(array, n = 1){
+		return array.selice(n)
+	},
+
+	dropRight: function(array, n = 1){
+		if (n = 0) n = 1 - array.length
+		return array.selice(0, -n)
+	},
+
 	/**
 	 * [fill description]
 	 * @param  {[type]} ary  [description]
@@ -67,7 +87,7 @@ var ly344122198 = {
 			if (ary[i] == val) return i
 		}
 		return -1
-	},
+	}
 
 	join: function(ary, sepeartry = ',') {
     	var str = '';
@@ -171,8 +191,12 @@ var ly344122198 = {
 		return result
 	},
 
-	map: function(ary){
-
+	map: function(ary, transform){
+		var result = [ ]
+		for (var i = 0; i < ary.length; i++) {
+			result.push(transform(ary[i]))
+		}
+		return result
 	},
 
 	isEqual: function(objOne, objTwo) {
@@ -207,6 +231,10 @@ var ly344122198 = {
 		}
 		return prev
 	},
+
+	get: function (){
+		
+	}
 
 	sum: function(ary) {
 		var sum = 0
@@ -256,7 +284,45 @@ var ly344122198 = {
 
 	matchesProperty: function(pairs) {
 		return matches(fromPairs(pairs))
-	}
+	},
+
+	unary: function(f) {
+		return function(value) {
+			return f(value)
+		}
+	},
+
+	negate: function(f) {
+		return function(...args) {
+			return !f(...args)
+		}
+	},
+
+	range: function(start, end, step = 1) {
+		var result = [ ]
+		if (arguments.length === 1) {
+			end = start
+			start = 0
+		}
+		for (var i = start; i < end; i += step) {
+			result.push(i)
+		}
+		return result
+	},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
