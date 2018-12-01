@@ -64,7 +64,7 @@ h4 {
   padding-bottom: 5px;
   display: block;
   font-weight: 700;
-  transition: border-bottom-color .2s;
+  transition: border-bottom-color 0.2s;
 }
 .topNavBar nav ul > li > a:hover {
   border-bottom-color: #dc6465;
@@ -173,7 +173,7 @@ main {
   padding: 10px 0;
   border-radius: 50%;
   margin: 12px 50px;
-  transition: background .2s;
+  transition: background 0.2s;
 }
 .userCard footer.media > a:hover {
   background: #cf5d5f;
@@ -291,7 +291,7 @@ section.portfolio > nav .bar-inner {
   height: 100%;
   background: #e6686a;
   border-radius: 3px;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 section.portfolio > nav .bar.state-1 .bar-inner {
   margin-left: 0;
@@ -311,8 +311,8 @@ section.portfolio .works {
   height: 597px;
   margin-top: 28px;
 }
-section.portfolio .works > .big ,
-section.portfolio .works > .small{
+section.portfolio .works > .big,
+section.portfolio .works > .small {
   position: absolute;
 }
 section.portfolio .works > .big {
