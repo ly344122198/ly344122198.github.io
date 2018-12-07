@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>div-canvas</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #canvas {
+            background: green;
+            height: 100vh;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="canvas"></div>
+</body>
+<script>
+    // 浏览器机制是每隔一定时间才会发出事件 所以当鼠标移动快速时
+    // MouseEvent的信息不会每个点更新，所以快速滑动时点是间断的
+    var div = document.getElementById('canvas')
+    var painting = false
+    //鼠标按下
+    div.onmousedown = function (a) {
+        painting = true
+        var x = a.clientX
+        var x = a.clientY
+        var divA = document.createElement('div')
+        divA.style = "width: 6px; height: 6px;" +
+            "background: black; border-radius: 3px;" +
+            "position: absolute; left: " + (x - 3) + "px;" +
+            "top: " + (y - 3) + "px;"
+        div.appendChild(divA)
+    }
+
+    //滑动
+    div.onmousemove = function (a) {
+        if (painting) {
+            var x = a.clientX
+            var y = a.clientY
+            var divA = document.createElement('div')
+            divA.style = "width: 6px; height: 6px;" +
+                "background: black; border-radius: 3px;" +
+                "position: absolute; left: " + (x - 3) + "px;" +
+                "top: " + (y - 3) + "px;"
+            div.appendChild(divA)
+        }
+
+        //松鼠标
+        div.onmouseup = function (z) {
+            painting = false
+        }
+    }
+</script>
+
+</html>

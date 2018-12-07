@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #xxx {
+            background: green;
+            display: block;
+        }
+
+        button {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id='xxx' width=300 height=300></canvas>
+    <button id="eraser">橡皮擦</button>
+</body>
+<script>
+    var yyy = document.getElementById('xxx');
+    XXXXXX()
+    //监听页面调整
+    window.onresize = function () {
+        XXXXXX()
+    }
+
+    function XXXXXX() {
+        var pageWidth = document.documentElement.clientWidth
+        var pageHeight = document.documentElement.clientHeight
+        yyy.width = pageWidth
+        yyy.height = pageHeight
+    }
+
+    //
+
+    var context = yyy.getContext('2d');
+
+    var using = false
+    var lastPoint = {
+        x: undefined,
+        y: undefined
+    }
+    yyy.onmousedown = function (aaa) {
+        var x = aaa.clientX
+        var y = aaa.clientY
+        if (eraserEnabled) {
+            using = true
+            context.clearRect(x - 5, y - 5, 10, 10)
+        } else {
+            using = true
+            lastPoint = {
+                'x': x,
+                'y': y
+            }
+        }
+    }
+    yyy.onmousemove = function (aaa) {
+        var x = aaa.clientX
+        var y = aaa.clientY
+        if (eraserEnabled) {
+            if (using) {
+                context.clearRect(x - 5, y - 5, 10, 10)
+            }
+        } else {
+            if (using) {
+                var newPoint = {
+                    'x': x,
+                    'y': y
+                }
+                drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+                lastPoint = newPoint
+            }
+        }
+    }
+    yyy.onmouseup = function (aaa) {
+        using = false
+    }
+
+    function drawCircle(x, y, radius) {
+        context.beginPath();
+        context.follStyle = 'black'
+        context.arc(x, y, radius, 0, Math.PI * 2);
+        context.fill()
+    }
+    function drawLine(x1, y1, x2, y2) {
+        context.beginPath();
+        context.strokeStyle = 'black'
+        //起点
+        context.moveTo(x1, y1)
+        context.lineWidth = 5
+        //终点
+        context.lineTo(x2, y2)
+        context.stroke()
+        context.closePath()
+    }
+
+
+    // eraser
+    var eraserEnabled = false
+    eraser.onclick = function () {
+        eraserEnabled = !eraserEnabled
+        if (eraserEnabled) {
+            eraser.textContent = '画笔'
+        } else {
+            eraser.textContent = '橡皮'
+        }
+    }
+</script>
+
+</html>
