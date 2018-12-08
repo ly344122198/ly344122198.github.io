@@ -1,0 +1,66 @@
+#xxx {
+    background: white;
+    display: block;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+ol,li{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+ }
+
+.actions {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+
+.actions svg {
+    width: 2em;
+    height: 2em;
+    margin-right: 20px;
+    transition: all .3s;
+}
+.actions svg.active {
+    fill: red;
+    transform: scale(1.5)
+}
+.color{
+    position: fixed;
+    top: 60px;
+    left: 20px;
+    border: 1px;
+}
+.color > li {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    /* border: 2px solid rgba(0, 0, 0, .5); */
+    margin: 20px 0;
+}
+.color > li.active {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1)
+}
+
+.color > li.black {
+    background: black;
+}
+.color > li.red {
+    background: red;
+}
+.color > li.green {
+    background: green;
+}
