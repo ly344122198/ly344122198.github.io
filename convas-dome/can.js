@@ -1,3 +1,8 @@
+// //阻止页面滚动
+// document.body.ontouchstart = function (e) {
+//     e.preventDefault()
+// } 莫名其妙静止了手机上的所有功能
+
 var yyy = document.getElementById('xxx');
 var context = yyy.getContext('2d');
 
@@ -17,6 +22,22 @@ eraser.onclick = function () {
     eraser.classList.add('active')
     pen.classList.remove('active')
 }
+
+//清除（google搜索的）
+clear.onclick = function () {
+    context.clearRect(0, 0, yyy.width, yyy.height)
+}
+
+//下载保存
+save.onclick = function () {
+    var url = yyy.toDataURL('image/png')
+    console.log(url)
+    var a = document.createElement('a')
+    document.body.appendChild(a)
+    a.href = url
+    a.download = 'x'
+    a.click()
+}//保存的png背景色为啥是黑的？？
 
 black.onclick = function () {
     context.fillStyle = 'black'

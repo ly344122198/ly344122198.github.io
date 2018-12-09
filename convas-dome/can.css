@@ -1,6 +1,10 @@
 #xxx {
     background: white;
     display: block;
+    /* 禁止手机端页面会来回滚动 */
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 body {
