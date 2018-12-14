@@ -56,7 +56,7 @@
     <div class="mask"></div>
   </div>
   <main>
-    <div id="siteContact" class="userCard">
+    <div data-near id="siteContact" class="userCard">
       <div class="pictureAndText clearfix">
         <div class="picture"><img src="./img/tx.jpg" alt="头像" /></div>
         <div class="text">
@@ -98,12 +98,12 @@
       <a class=" domnloadResume" href="./resume.pdf" target="_blank" download="">下载
       PDF 简历</a>
     </p>
-    <p id="siteAbout" class="self">
+    <p data-near id="siteAbout" class="self">
       刘洋,前端工程师，现在在就职于泰山在线。<br />
       毕业于武汉轻工大学，校招进中国建设银行入职于浙江省某一偏远支行，恍惚三年后某一天夜不能寐（期间标兵、优秀等奖也有三五个，行内对公客户经理、网点经理考试已过），怕噎死于浑噩，所以辞职（辞职后发现很多很多的人都有很多很多的焦虑）；后去杭州，身无一技之长，幸得老总收留，就职于泰山在线科技有限公司，从切图小工做起至今做前端开发岗位已一年有余。
     </p>
   </main>
-  <section id="siteSkills" class="skills">
+  <section data-near id="siteSkills" class="skills">
     <h2>技能</h2>
     <ol class="clearfix">
       <li>
@@ -156,7 +156,7 @@
       </li>
     </ol>
   </section>
-  <section id='siteWorks' class="portfolio">
+  <section data-near id='siteWorks' class="portfolio">
     <h2>作品集</h2>
     <nav>
       <ol class="clearfix">
@@ -198,14 +198,52 @@
     //网速太快看不到loading，特意用setTimeout函数延时
     setTimeout(function () {
       siteWelcome.classList.remove('active')
-    }, 1500)
+    }, 500)
+
+    setTimeout(function(){
+      moveTop()
+    }, 500)
+
+    let specialTags = document.querySelectorAll('[data-near]')
+    for (let i = 0; i < specialTags.length; i++) {
+      specialTags[i].classList.add('offset')
+      
+    }
+
     //onscroll得到页面滚动像素
     window.onscroll = function (xxx) {
+      //nav
       if (window.scrollY > 30) {
         topNavBar.classList.add('sticky')
       } else {
         topNavBar.classList.remove('sticky')
       }
+      moveTop()
+    }
+    
+    function moveTop() {
+      //div页面滚动相对应锚点高亮
+      let specialTags = document.querySelectorAll('[data-near]')
+      let minIndex = 0
+      for (let i = 1; i < specialTags.length; i++) {
+        if (Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
+          minIndex = i
+        }
+      }
+      for (let i = 0; i < specialTags.length; i++) {
+        specialTags[i].classList.remove('heighlight')
+      }
+      //minIndex是距离窗口顶部最近的代码
+      specialTags[minIndex].classList.remove('offset')
+      let id =specialTags[minIndex].id
+      let a = document.querySelector('a[href="#' + id + '"]')
+      let li = a.parentNode
+      let allSon = li.parentNode.children
+      for (let i = 0; i < allSon.length; i++) {
+        allSon[i].classList.remove('heighlight')  
+      }
+      li.classList.add('heighlight')
+      
     }
 
     let liTags = document.getElementsByClassName('menuTigger')
@@ -219,6 +257,16 @@
     }
 
     let aTags = document.querySelectorAll('nav>ul>li>a.prevent')
+    
+    //以下tweenjs的官方文档内容
+    function animate(time) {
+      requestAnimationFrame(animate)
+      TWEEN.update(time)
+    }
+    //requestAnimationFrame：请求动画帧率
+    requestAnimationFrame(animate)
+    //以上tweenjs的官方文档内容
+
     for (let i = 0; i < aTags.length; i++) {
       aTags[i].onclick = function (x) {
         x.preventDefault()
@@ -228,24 +276,44 @@
         // let top = element.offsetTop
         let top = document.querySelector(x.currentTarget.getAttribute('href')).offsetTop
         
-        let n = 50 //.3秒内移动25次（每秒移动 > 40次眼睛就看成滑动）
-        let duration = 300 / n //.3s 内动25次
+        //自己写的并不连贯
+        // let n = 50 //.3秒内移动25次（每秒移动 > 40次眼睛就看成滑动）
+        // let duration = 300 / n //.3s 内动25次
+        // let currentTop = window.scrollY
+        // let targetTop = top - 90
+        // let distance = (targetTop - currentTop) / n
+        // let i = 0
+        // console.log(targetTop)
+        // console.log(currentTop)
+        // console.log(n)
+        // console.log(distance)
+        // let id = setInterval(()=> {
+        //   if(i === n) {
+        //     window.clearInterval(id)
+        //     return
+        //   }   
+        //   i = i + 1
+        //   window.scrollTo(0, currentTop + distance * i)
+        // }, duration)
+        
+        //以下tweenjs
         let currentTop = window.scrollY
         let targetTop = top - 90
-        let distance = (targetTop - currentTop) / n
-        let i = 0
-        console.log(targetTop)
-        console.log(currentTop)
-        console.log(n)
-        console.log(distance)
-        let id = setInterval(()=> {
-          if(i === n) {
-            window.clearInterval(id)
-            return
-          }   
-          i = i + 1
-          window.scrollTo(0, currentTop + distance * i)
-        }, duration)
+        let s = targetTop - currentTop //需要走的长度
+        var coords = { y: currentTop}; //start位置
+        //页面向上滚动时浏览器算作负数所以会导致时间t会是负数影响页面滚动效果（向上滚动时会变慢）
+        var t = Math.abs((s / 100) * 300) //s/100*300 是每100px需要.3s
+        //当所需要滚动时间 > .5s时都为 .5s内完成
+        if(t > 500)t = 500
+        var tween = new TWEEN.Tween(coords) //start位置
+          .to({ y: targetTop}, 1000) //end位置
+          .easing(TWEEN.Easing.Quadratic.InOut) //所需缓动函数类型
+          .onUpdate(function () {
+            //console.log(coords.y)
+            window.scrollTo(0, coords.y) //变化所需要执行的代码（怎么更新页面）
+          })
+          .start();
+          //以上tweenjs
       }
       
     }
