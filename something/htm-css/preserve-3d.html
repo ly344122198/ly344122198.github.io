@@ -5,9 +5,9 @@
 		<title>prexerve-3d</title>
 		<style type="text/css">
 			*{
-				background-color: rgba(0,0,0,.1);
+				/* background-color: rgba(0,0,0,.1); */
 			}
-			section{
+			.pre-3d{
 				height: 200px;
 				width: 200px;
 				padding: 200px;
@@ -16,6 +16,7 @@
 				transform-style: preserve-3d;
 				transition: 2s;
 				animation: spin 3s infinite linear;
+				background-color: rgba(0,0,0,.1);
 			}
 			@keyframes spin{
 				from{
@@ -25,7 +26,7 @@
 					transform: perspective(1000px) rotateX(360deg) rotateY(720deg);
 				}
 			}
-			div{
+			div.pre-item{
 				width: 200px;
 				height: 200px;
 				position: absolute;
@@ -33,32 +34,32 @@
 				text-align: center;
 				font-size: 80px;
 			}
-			div:nth-child(1){
+			div.pre-item:nth-child(1){
 				transform: rotateX(0deg) translateZ(100px);
 				background-color: #FFCCCC;
 				opacity: .5;
 			}
-			div:nth-child(2){
+			div.pre-item:nth-child(2){
 				transform: rotateX(180deg) translateZ(100px);
 				background-color: #FFFF99;
 				opacity: .5;
 			}
-			div:nth-child(3){
+			div.pre-item:nth-child(3){
 				transform: rotateY(90deg) translateZ(100px);
 				background-color: #CCCCFF;
 				opacity: .5;
 			}
-			div:nth-child(4){
+			div.pre-item:nth-child(4){
 				transform: rotateY(-90deg) translateZ(100px);
 				background-color: #CCFFFF;
 				opacity: .5;
 			}
-			div:nth-child(5){
+			div.pre-item:nth-child(5){
 				transform: rotateX(90deg) translateZ(100px);
 				background-color: #CCCCCC;
 				opacity: .5;
 			}
-			div:nth-child(6){
+			div.pre-item:nth-child(6){
 				transform: rotateX(-90deg) translateZ(100px);
 				background-color: #CCFF99;
 				opacity: .5;
@@ -66,13 +67,13 @@
 		</style>
 	</head>
 	<body>
-		<section>
-			<div>1</div>
-			<div>2</div>
-			<div>3</div>
-			<div>4</div>
-			<div>5</div>
-			<div>6</div>
-		</section>
+		<div class="pre-3d">
+			<div class="pre-item">1</div>
+			<div class="pre-item">2</div>
+			<div class="pre-item">3</div>
+			<div class="pre-item">4</div>
+			<div class="pre-item">5</div>
+			<div class="pre-item">6</div>
+		</div>
 	</body>
 </html>

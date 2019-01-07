@@ -104,6 +104,7 @@ h4 {
   width: 100%;
   color: #b7b7b7;
   transition: all 0.5s;
+  z-index: 99;
 }
 
 .topNavBar.sticky {
@@ -211,6 +212,7 @@ h4 {
 }
 .topNavBar .submenu{
   display: none;
+  z-index: 99;
   position: absolute;
   right: 0;
   top: 110%;

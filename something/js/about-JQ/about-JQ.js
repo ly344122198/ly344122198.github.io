@@ -93,7 +93,7 @@ window.Node2 = function (node) {
     }
 }
 
-var = node2 = Node2(node)
+var node2 = Node2(node)
 node2.getSiblings()
 node2.addClass({
     a: true,
@@ -157,6 +157,7 @@ window.JQuery = function (nodeOrSelector) {
             }
         }
     }
+    //JQ是写在prototype里面，nodes.__proto__ = JQ.prototype
     return nodes
 }
 }
