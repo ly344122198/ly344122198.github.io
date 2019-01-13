@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./vue-2.5.21.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <input type="checkbox" :checked="todos.every(item => item.done)" @click="checkall">
+      <input type="text" @keyup.enter="addTodo" v-model.trim="userInput">
+    </div>
+    <ul>
+      <li v-for="(item, index) of showingTodos(todos, showing)">
+        <input type="checkbox" name="" id="" v-model="item.done">{{item.content}}
+        <span @click="delTudo(index)">&times;</span>
+      </li>
+    </ul>
+    <div><span>{{this.todos.filter(item => !item.done).length}} item{{this.todos.filter(item => !item.done).length > 1
+        ? 's' : ''}} left</span>
+      <span>
+        <label><input type="radio" v-model="showing" value="all"> all</label>
+        <label><input type="radio" v-model="showing" value="active"> active</label>
+        <label><input type="radio" v-model="showing" value="completed"> completed</label>
+      </span>
+      <button @click="delComp" v-if="todos.some(item => item.done)">Delete complated</button>
+    </div>
+
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        all: '',
+        active: '',
+        completed: '',
+        userInput: '',
+        showing: 'all',
+        todos: [{
+          content: 'eat',
+          done: false
+        }, {
+          content: 'drink',
+          done: true
+        }]
+      },
+      methods: {
+        delComp: function () {
+          this.todos = this.todos.filter(item => !item.done)
+        },
+        showingTodos: function (todos, cate) {
+          if (cate === 'all') {
+            return todos
+          }
+          if (cate === 'active') {
+            return todos.filter(item => item.done === false)
+          }
+          return todos.filter(item => item.done === true)
+        },
+        addTodo: function () {
+          this.todos.push(Math.random())
+        },
+        delTudo: function (index) {
+          this.todos.splice(index, 1)
+        },
+        addTodo: function (e) {
+          if (this.userInput.length > 0) {
+            var userIn = {
+              content: this.userInput,
+              done: false
+            }
+            this.todos.push(userIn)
+            this.userInput = ''
+          } else {
+            alert('请输入正确')
+            this.userInput = ''
+          }
+        },
+        checkall: function () {
+          if (this.todos.every(item => item.done)) {
+            this.todos.forEach(item => {
+              item.done = false
+            })
+          } else {
+            this.todos.forEach(item => {
+              item.done = true
+            })
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
